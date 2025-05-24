@@ -1,0 +1,13 @@
+services:
+  jenkins:
+    # pull jenkins LTS image from dockerhub
+    image: jenkins/jenkins:lts
+    ports:
+      - "8080:8080"
+    volumes:
+        #create volume for jenkins to persist its data
+      - jenkins_data:/var/jenkins_home
+    restart: unless-stopped
+
+volumes:
+  jenkins_data:
